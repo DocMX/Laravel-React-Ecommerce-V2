@@ -7,6 +7,7 @@ use App\Enums\RolesEnum;
 use App\Enums\VendorStatusEnum;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Vendor; 
 
 
 class UserSeeder extends Seeder
@@ -28,7 +29,7 @@ class UserSeeder extends Seeder
             //'password' => ''
         ]);
         $user->assignRole(RolesEnum::Vendor->value);
-        VendorSeeder::factory()->create([
+        Vendor::factory()->create([
             'user_id' => $user->id,
             'status' => VendorStatusEnum::Approved,
             'store_name' => 'Vendor Store',

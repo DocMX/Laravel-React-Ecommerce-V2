@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::middleware(['verified'])->group(function () {
-        Route::post('/cart/checkout',[CartController::class, 'checkout'])
+        Route::post('/cart/checkout', [CartController::class, 'checkout'])
             ->name('cart.checkout');
 
         Route::get('/stripe/success', [StripeController::class, 'success'])
@@ -42,7 +42,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/stripe/connect', [StripeController::class, 'connect'])
             ->name('stripe.connect')
             ->middleware(['role: ' . \App\Enums\RolesEnum::Vendor->value]);
+
+        Route::get('/stripe/refresh', [StripeController::class, 'refresh'])->name('stripe.refresh');
+        Route::get('/stripe/return', [StripeController::class, 'return'])->name('stripe.return');
     });
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

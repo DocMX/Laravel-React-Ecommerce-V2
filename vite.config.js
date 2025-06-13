@@ -11,4 +11,12 @@ export default defineConfig({
         }),
         react(),
     ],
+    resolve: {
+        alias: {
+            '@': '/resources/js',
+        },
+    },
+    optimizeDeps: {
+        include: ['@inertiajs/react', 'react', 'react-dom'],
+    },
 });

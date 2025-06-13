@@ -9,7 +9,7 @@ class VendorController extends Controller
 {
     public function profile(Vendor $vendor)
     {
-
+        
     }
 
     public function store(Request  $request)

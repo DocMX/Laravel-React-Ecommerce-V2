@@ -153,10 +153,26 @@ export interface NavItem {
     isActive?: boolean;
 }
 
+export interface Quote {
+    message: string;
+    author: string;
+}
+
 export interface SharedData {
-    name: string;
-    quote: { message: string; author: string };
-    auth: Auth;
+    csrf_token: string;
+    error: string;
+    success: {
+        message: string;
+        time: number;
+    };
+    auth: {
+        user: User;
+    };
     ziggy: Config & { location: string };
+    totalPrice: number;
+    totalQuantity: number;
+    miniCartItems: CartItem[];
+    name?: string;
+    quote?: Quote;
     [key: string]: unknown;
 }
